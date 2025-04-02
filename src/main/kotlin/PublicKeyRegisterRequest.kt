@@ -1,0 +1,1 @@
+data class PublicKeyRegisterRequest(val userId: String, val publicKey: String)
