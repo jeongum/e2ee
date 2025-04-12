@@ -42,7 +42,7 @@ class EncryptionService {
     // 메제지 복호화: 대칭키(SecretKey) 사용
     fun decryptAESWithIVPrefixed(encryptedCombined: String, secretKey: SecretKey): String {
         val combinedBytes = Base64.getDecoder().decode(encryptedCombined)
-        val iv = combinedBytes.copyOfRange(0, 16)   // 암호화에 사용한 대칭키 추출
+        val iv = combinedBytes.copyOfRange(0, 16)   // 암호화에 사용한 iv 추출
         val encrypted = combinedBytes.copyOfRange(16, combinedBytes.size)   // 암호화된 실제 메세지 추출
 
         val cipher = Cipher.getInstance("AES/CBC/PKCS5Padding")     // 암호 처리기 생성
